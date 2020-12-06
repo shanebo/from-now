@@ -59,16 +59,16 @@ describe('No adverb', () => {
   const now = Date.now();
 
   it('1 second', () => {
-    expect(fromNow(now, true)).to.equal('1 second');
+    expect(fromNow(now, false)).to.equal('1 second');
   });
 
   it('6 hours', () => {
     const sixHoursAgo = dayjs().subtract(6, 'hour').toDate();
-    expect(fromNow(sixHoursAgo, true)).to.equal('6 hours');
+    expect(fromNow(sixHoursAgo, false)).to.equal('6 hours');
   });
 
   it('1 day', () => {
     const yesterday = dayjs().subtract(1, 'day').toDate();
-    expect(fromNow(yesterday, true)).to.equal('1 day');
+    expect(fromNow(yesterday, false)).to.equal('1 day');
   });
 });

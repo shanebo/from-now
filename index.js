@@ -8,7 +8,7 @@ const intervals = [
   { label: 'second', seconds: 0 }
 ];
 
-module.exports = (d, noAdverb = false) => {
+module.exports = (d, withAdverb = true) => {
   const date = typeof d === 'object' ? d : new Date(d);
   const diff = Date.now() - date.getTime();
   const isPast = diff > 0;
@@ -16,7 +16,7 @@ module.exports = (d, noAdverb = false) => {
   const interval = intervals.find(i => i.seconds <= seconds);
   const count = interval.seconds ? Math.floor(seconds / interval.seconds) : 1;
   const output = `${count} ${interval.label}${count !== 1 ? 's' : ''}`;
-  return noAdverb
+  return !withAdverb
     ? output
     : isPast
       ? `${output} ago`
