@@ -1,0 +1,19 @@
+{
+  "name": "from-now",
+  "version": "0.0.1",
+  "description": "Tiny function that returns human readable phrase from now.",
+  "repository": "git://github.com/shanebo/from-now.git",
+  "main": "./index",
+  "scripts": {
+    "test": "mocha",
+    "test:dev": "mocha -w"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~8.1.3",
+    "chai": "~4.2.0",
+    "dayjs": "~1.9.1"
+  },
+  "author": "Shane Thacker <shane@steadymade.com>",
+  "license": "MIT"
+}
