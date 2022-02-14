@@ -64,20 +64,21 @@ describe('Future', () => {
 });
 
 
-describe('No adverb', () => {
-  const now = Date.now();
+describe('No phrase', () => {
+  const opts = { phrase: false };
 
-  it('0 second', () => {
-    expect(fromNow(now, false)).to.equal('0 second');
+  it('1 second', () => {
+    const now = Date.now();
+    expect(fromNow(now, opts)).to.equal('1 second');
   });
 
   it('6 hours', () => {
     const sixHoursAgo = dayjs().subtract(6, 'hour').toDate();
-    expect(fromNow(sixHoursAgo, false)).to.equal('6 hours');
+    expect(fromNow(sixHoursAgo, opts)).to.equal('6 hours');
   });
 
   it('1 day', () => {
     const yesterday = dayjs().subtract(1, 'day').toDate();
-    expect(fromNow(yesterday, false)).to.equal('1 day');
+    expect(fromNow(yesterday, opts)).to.equal('1 day');
   });
 });
