@@ -1,6 +1,6 @@
 {
   "name": "from-now",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Tiny function that returns human readable phrase from now.",
   "repository": "git://github.com/shanebo/from-now.git",
   "main": "./index",
