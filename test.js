@@ -82,3 +82,23 @@ describe('No phrase', () => {
     expect(fromNow(yesterday, opts)).to.equal('1 day');
   });
 });
+
+
+describe('Abbreviate', () => {
+  const opts = { abbreviate: true };
+
+  it('1 sec', () => {
+    const now = Date.now();
+    expect(fromNow(now, opts)).to.equal('1 sec ago');
+  });
+
+  it('6 hrs', () => {
+    const sixHoursAgo = dayjs().subtract(6, 'hour').toDate();
+    expect(fromNow(sixHoursAgo, opts)).to.equal('6 hrs ago');
+  });
+
+  it('1 day', () => {
+    const yesterday = dayjs().subtract(1, 'day').toDate();
+    expect(fromNow(yesterday, opts)).to.equal('1 day ago');
+  });
+});
