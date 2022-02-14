@@ -4,9 +4,8 @@ const fromNow = require('./index');
 
 
 describe('Past', () => {
-  const now = Date.now();
-
   it('1 second ago', () => {
+    const now = Date.now();
     expect(fromNow(now)).to.equal('1 second ago');
   });
 
@@ -21,8 +20,8 @@ describe('Past', () => {
   });
 
   it('2 years ago', () => {
-    const year = new Date().getFullYear();
-    expect(fromNow(`12/06/${year - 2}`)).to.equal('2 years ago');
+    const twoYearsAgo = dayjs().subtract(2, 'year').toDate();
+    expect(fromNow(twoYearsAgo)).to.equal('2 years ago');
   });
 });
 
@@ -48,9 +47,9 @@ describe('Future', () => {
     expect(fromNow(inTwoWeeks)).to.equal('in 2 weeks');
   });
 
-  it('in 1 month', () => {
-    const inOneMonth = dayjs().add(1, 'month').toDate();
-    expect(fromNow(inOneMonth)).to.equal('in 1 month');
+  it('in 4 weeks', () => {
+    const inFourWeeks = dayjs().add(1, 'month').toDate();
+    expect(fromNow(inFourWeeks)).to.equal('in 4 weeks');
   });
 });
 
@@ -58,8 +57,8 @@ describe('Future', () => {
 describe('No adverb', () => {
   const now = Date.now();
 
-  it('1 second', () => {
-    expect(fromNow(now, false)).to.equal('1 second');
+  it('0 second', () => {
+    expect(fromNow(now, false)).to.equal('0 second');
   });
 
   it('6 hours', () => {
