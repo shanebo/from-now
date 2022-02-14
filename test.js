@@ -9,6 +9,16 @@ describe('Past', () => {
     expect(fromNow(now)).to.equal('1 second ago');
   });
 
+  it('5 seconds ago', () => {
+    const fiveSecsAgo = dayjs().subtract(5, 'second').toDate();
+    expect(fromNow(fiveSecsAgo)).to.equal('5 seconds ago');
+  });
+
+  it('45 seconds ago', () => {
+    const fortyFiveSecsAgo = dayjs().subtract(45, 'second').toDate();
+    expect(fromNow(fortyFiveSecsAgo)).to.equal('45 seconds ago');
+  });
+
   it('6 hours ago', () => {
     const sixHoursAgo = dayjs().subtract(6, 'hour').toDate();
     expect(fromNow(sixHoursAgo)).to.equal('6 hours ago');
