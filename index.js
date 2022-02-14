@@ -1,14 +1,21 @@
 const intervals = [
-  { label: 'year', seconds: 31536000 },
-  { label: 'month', seconds: 2592000 },
-  { label: 'week', seconds: 604800 },
-  { label: 'day', seconds: 86400 },
-  { label: 'hour', seconds: 3600 },
-  { label: 'minute', seconds: 60 },
-  { label: 'second', seconds: 0 }
+  { short: 'yr', long: 'year', seconds: 31536000 },
+  { short: 'mo', long: 'month', seconds: 2592000 },
+  { short: 'wk', long: 'week', seconds: 604800 },
+  { short: 'day', long: 'day', seconds: 86400 },
+  { short: 'hr', long: 'hour', seconds: 3600 },
+  { short: 'min', long: 'minute', seconds: 60 },
+  { short: 'sec', long: 'second', seconds: 0 }
 ];
 
-module.exports = (d, withAdverb = true) => {
+const defaults = {
+  abbreviate: false,
+  phrase: true
+};
+
+module.exports = (d, options = {}) => {
+  const opts = { ...defaults, ...options };
+  const type = opts.abbreviate ? 'short' : 'long';
   const date = typeof d === 'object' ? d : new Date(d);
   const diff = Date.now() - date.getTime();
   const isPast = diff >= 0;
@@ -19,8 +26,8 @@ module.exports = (d, withAdverb = true) => {
     : seconds
       ? seconds
       : 1;
-  const output = `${count} ${interval.label}${count !== 1 ? 's' : ''}`;
-  return !withAdverb
+  const output = `${count} ${interval[type]}${count !== 1 ? 's' : ''}`;
+  return !opts.phrase
     ? output
     : isPast
       ? `${output} ago`
