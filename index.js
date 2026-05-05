@@ -8,13 +8,13 @@ const intervals = [
   { short: 'sec', long: 'second', seconds: 0 }
 ];
 
-const defaults = {
-  abbreviate: false,
-  phrase: true
-};
 
-module.exports = (d, options = {}) => {
-  const opts = { ...defaults, ...options };
+export default (d, options = {}) => {
+  const opts = {
+    abbreviate: false,
+    phrase: true,
+    ...options
+  };
   const type = opts.abbreviate ? 'short' : 'long';
   const date = typeof d === 'object' ? d : new Date(d);
   const diff = Date.now() - date.getTime();

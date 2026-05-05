@@ -1,0 +1,15 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "from-now",
+      "devDependencies": {
+        "dayjs": "^1.11.3",
+      },
+    },
+  },
+  "packages": {
+    "dayjs": ["dayjs@1.11.3", "", {}, "sha512-xxwlswWOlGhzgQ4TKzASQkUhqERI3egRNqgV4ScR8wlANA/A9tZ7miXa44vTTKEq5l7vWoL5G57bG3zA+Kow0A=="],
+  }
+}

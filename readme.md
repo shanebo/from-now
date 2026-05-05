@@ -3,7 +3,7 @@ A 1kb function that returns a date‘s amount of time from now.
 
 
 ## Install
-`npm install from-now`
+`bun add from-now`
 
 
 ## API
